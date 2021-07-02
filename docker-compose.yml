@@ -1,0 +1,21 @@
+version: '3.7'
+
+networks:
+  bridge:
+    driver: bridge
+
+services:
+  app:
+    depends_on:
+    image: playsms/playsms
+    networks:
+      - bridge
+    ports:
+      - "80:8000"
+      - "2222:22"
+    restart: unless-stopped
+    volumes:
+      - /opt/mysql/lib:/var/lib/mysql
+
+volumes:
+  /opt/mysql/lib:
