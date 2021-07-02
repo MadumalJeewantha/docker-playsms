@@ -15,7 +15,7 @@ services:
       - "2222:22"
     restart: unless-stopped
     volumes:
-      - /opt/mysql/lib:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
 
 volumes:
-  /opt/mysql/lib:
+  mysql-data:
